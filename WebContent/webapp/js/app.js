@@ -1,4 +1,4 @@
-var app = angular.module('myApp', [ 'ngRoute', 'DataServiceModule', 'SharedServiceModule' ]);
+var app = angular.module('myApp', [ 'ngRoute', 'ui.bootstrap','DataServiceModule', 'SharedServiceModule' ]);
 
 app.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider
