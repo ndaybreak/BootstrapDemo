@@ -15,6 +15,8 @@
 	<link href="css/sb-admin.css" rel="stylesheet">
 	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
+	
+	
 </head>
  
 <body>
@@ -27,7 +29,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 					<span class="sr-only">Toggle navigation</span>
 				</button>
-				<a class="navbar-brand" href="index.html">SB Admin</a>
+				<a class="navbar-brand" href="index.html">Admin</a>
 			</div>
 			<!-- 右上部菜单 -->
 			<ul class="nav navbar-right top-nav">
@@ -42,22 +44,7 @@
 			</ul>
 			<!-- 主菜单 -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<!-- <ul class="nav navbar-nav side-nav">
-					<li>
-						<a href="javascript:void(0);" data-toggle="collapse" data-target="#demo">
-							<i class="fa fa-fw fa-arrows-v"></i> 
-							My Test <i class="fa fa-fw fa-caret-down"></i>
-						</a>
-						<ul id="demo" class="collapse">
-							<li class="active">
-								<a href="#/booking-list">订单列表</a>
-							</li>
-							<li><a href="#/">我的询价</a></li>
-						</ul>
-					</li>
-					<li><a href="#/"><i class="fa fa-fw fa-wrench"></i>Bootstrap Grid</a></li>
-				</ul> -->
-				<uib-accordion close-others="true" class="nav navbar-nav side-nav">
+				<!-- <uib-accordion close-others="true" class="nav navbar-nav side-nav">
 				    <uib-accordion-group class="panel-menu">
 				    	<uib-accordion-heading>
 					        My Test <i class="fa fa-fw fa-caret-down"></i>
@@ -69,12 +56,45 @@
 							<li><a href="#/">我的询价</a></li>
 						</ul>
 				    </uib-accordion-group>
-				    <uib-accordion-group>
+				    <uib-accordion-group class="panel-menu">
 				    	<uib-accordion-heading>
 					        Demo <i class="fa fa-fw fa-caret-down"></i>
 					    </uib-accordion-heading>
 				    	This content is straight in the template.
 				    </uib-accordion-group>
+				    
+				</uib-accordion> -->
+				
+				<uib-accordion close-others="true" template-url="accordion-template.html">
+					<uib-accordion-group template-url="group-template.html">
+				    	<uib-accordion-heading>
+					        <i class="fa fa-fw fa-arrows-v"></i>
+					        My Test
+					        <i class="fa fa-fw fa-caret-down"></i>
+					    </uib-accordion-heading>
+				    	<li>
+							<a href="#/booking-list">订单列表</a>
+						</li>
+						<li>
+							<a href="#/">我的询价</a>
+						</li>
+						<li>
+							<a href="#/"><i class="fa fa-fw fa-edit"></i> 表单</a>
+						</li>
+				    </uib-accordion-group>
+				    
+				    <uib-accordion-group template-url="group-template.html">
+				    	<uib-accordion-heading>
+					        <i class="fa fa-fw fa-table"></i> Tables
+					    </uib-accordion-heading>
+				    </uib-accordion-group>
+				    
+				    <uib-accordion-group template-url="group-template.html">
+				    	<uib-accordion-heading>
+					        <i class="fa fa-fw fa-bar-chart-o"></i> Charts
+					    </uib-accordion-heading>
+				    </uib-accordion-group>
+				    
 				</uib-accordion>
 			</div>
 		</nav>
@@ -86,6 +106,22 @@
 
 	</div>
 	
+	<script type="text/ng-template" id="accordion-template.html">
+		<ul class="nav navbar-nav side-nav" ng-transclude></ul>
+	</script>
+	
+	<script type="text/ng-template" id="group-template.html">
+		<li>
+			<a href="" tabindex="0" ng-click="toggleOpen()" uib-accordion-transclude="heading"> 
+				<span uib-accordion-header> {{heading}} </span>
+			</a>
+			<ul class="panel-collapse collapse" uib-collapse="!isOpen" ng-transclude>
+			</ul>
+		</li>
+	</script>
+	
+
+
 	<!-- 引入第三方库 -->
 	<script src="jslib/jquery.js"></script>
 	<script src="jslib/angular.js"></script>
