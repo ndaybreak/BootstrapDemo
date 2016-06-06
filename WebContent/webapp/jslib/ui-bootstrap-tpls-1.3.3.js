@@ -178,7 +178,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
       isOpen: '=?',
       isDisabled: '=?'
     },
-    controller: function() {
+    controller: function($scope) {
       this.setHeading = function(element) {
         this.heading = element;
       };
@@ -215,7 +215,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
   return {
     transclude: true,   // Grab the contents to be used as the heading
     template: '',       // In effect remove this element!
-    replace: true,
+    replace: false,
     require: '^uibAccordionGroup',
     link: function(scope, element, attrs, accordionGroupCtrl, transclude) {
       // Pass the heading to the accordion-group controller

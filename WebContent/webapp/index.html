@@ -73,23 +73,23 @@
 					        <i class="fa fa-fw fa-caret-down"></i>
 					    </uib-accordion-heading>
 				    	<li>
-							<a href="#/booking-list">订单列表</a>
+							<a ng-href="#/booking-list">订单列表</a>
 						</li>
 						<li>
-							<a href="#/">我的询价</a>
+							<a ng-href="#/">我的询价</a>
 						</li>
 						<li>
-							<a href="#/"><i class="fa fa-fw fa-edit"></i> 表单</a>
+							<a ng-href="#/"><i class="fa fa-fw fa-edit"></i> 表单</a>
 						</li>
 				    </uib-accordion-group>
 				    
-				    <uib-accordion-group template-url="group-template.html">
+				    <uib-accordion-group template-url="group-template.html" panel-class="#/tables">
 				    	<uib-accordion-heading>
 					        <i class="fa fa-fw fa-table"></i> Tables
 					    </uib-accordion-heading>
 				    </uib-accordion-group>
 				    
-				    <uib-accordion-group template-url="group-template.html">
+				    <uib-accordion-group template-url="group-template.html" panel-class="#/charts">
 				    	<uib-accordion-heading>
 					        <i class="fa fa-fw fa-bar-chart-o"></i> Charts
 					    </uib-accordion-heading>
@@ -112,8 +112,8 @@
 	
 	<script type="text/ng-template" id="group-template.html">
 		<li>
-			<a href="" tabindex="0" ng-click="toggleOpen()" uib-accordion-transclude="heading"> 
-				<span uib-accordion-header> {{heading}} </span>
+			<a ng-href="{{panelClass === 'panel-default' ? '' : panelClass}}" tabindex="0" ng-click="toggleOpen()" uib-accordion-transclude="heading"> 
+				<uib-accordion-header></uib-accordion-header>
 			</a>
 			<ul class="panel-collapse collapse" uib-collapse="!isOpen" ng-transclude>
 			</ul>
@@ -141,6 +141,8 @@
 
 	<!-- 模块脚本 -->
 	<script src="js/controllers/booking-list.js"></script>
+	<script src="js/controllers/tables.js"></script>
+	<script src="js/controllers/charts.js"></script>
 </body>
 
 </html>
